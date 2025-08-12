@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Tunggu Gambar Selanjutnya</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  background: #f8f9fb;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+.card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 420px;
+  width: 100%;
+}
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  animation: pop 1.2s ease-in-out infinite;
+}
+@keyframes pop {
+  0%,100% { transform: translateY(0); color: #ff3c5f; }
+  40% { transform: translateY(-8px); color: #ff7a85; }
+  80% { transform: translateY(0); color: #42a5f5; }
+}
+.sub {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+}
+.join-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin-top: 8px;
+  background: linear-gradient(135deg, #ff3c5f, #ff7a85);
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 8px 22px rgba(255,60,95,0.18);
+}
+.join-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff7a85, #ff3c5f);
+  box-shadow: 0 14px 32px rgba(255,60,95,0.22);
+}
+
+/* Area gambar tetap */
+.sticker-carousel {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.sticker-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Menjaga proporsi gambar */
+  background: #fff; /* Background putih kalau gambar transparan */
+  transition: opacity 0.5s ease;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Tunggu Gambar Selanjutnya</h1>
+  <div class="sub">Kami akan segera hadirkan gambar terbaru. ✨</div>
+
+  <a href="https://chat.whatsapp.com/xxxxx" class="join-btn">Gabung Grup</a>
+  
+  <div class="sticker-carousel">
+    <img src="" alt="Anime PNG" id="animeImage">
+  </div>
+</div>
+
+<script>
+// Daftar PNG (bisa ditambah atau diganti)
+const pngList = [
+  "anime.jpg",
+  "anime2.jpg",
+  "anime3.jpg"
+];
+
+let current = 0;
+const img = document.getElementById('animeImage');
+
+// Set gambar pertama
+img.src = pngList[current];
+
+// Ganti gambar setiap 3 detik
+setInterval(() => {
+  current = (current + 1) % pngList.length;
+  img.style.opacity = 0;
+  setTimeout(() => {
+    img.src = pngList[current];
+    img.style.opacity = 1;
+  }, 300);
+}, 3000);
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,257 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <script src="language.js"></script>
+        <!-- Character encoding -->
+        <meta charset="UTF-8" />
+
+        <!-- Viewport untuk responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Kompatibilitas IE -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="MY BIO - Chat dan Watch Video!" name="title" />
+        <meta
+            content="Welcome to MY BIO. Klik untuk mulai chat di WhatsApp atau nonton video keren langsung!"
+            name="description"
+        />
+        <meta
+            content="my bio, bio, whatsapp, video, link, kontak, facebook, media sosial"
+            name="keywords"
+        />
+        <meta content="MY BIO" name="author" />
+        <meta content="index,follow" name="robots" />
+        <meta content="website" property="og:type" />
+        <meta content="https://domainkamu.com/" property="og:url" />
+        <meta
+            content="MY BIO - Chat dan Lihat Video Sekarang!"
+            property="og:title"
+        />
+        <meta
+            content="Klik untuk mulai chat di WhatsApp atau nonton video keren langsung di halaman ini!"
+            property="og:description"
+        />
+        <meta
+            content="https://domainkamu.com/gambar-thumbnail.jpg"
+            property="og:image"
+        />
+        <!-- Twitter Card -->
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta content="https://domainkamu.com/" name="twitter:url" />
+        <meta
+            content="MY BIO - Chat dan Lihat Video Sekarang!"
+            name="twitter:title"
+        />
+        <meta
+            content="Klik untuk mulai chat di WhatsApp atau nonton video keren langsung di halaman ini!"
+            name="twitter:description"
+        />
+        <meta
+            content="https://domainkamu.com/gambar-thumbnail.jpg"
+            name="twitter:image"
+        />
+        <title>MY BIO PAGE</title>
+        <!-- TailwindCSS CDN -->
+        <script src="https://cdn.tailwindcss.com">
+        </script>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            rel="stylesheet"
+        />
+        <!-- Fonts & Background Animation -->
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+            body {
+                font-family: "Inter", sans-serif;
+                background: linear-gradient(
+                    -45deg,
+                    #ff6ec4,
+                    #7873f5,
+                    #00c6ff,
+                    #0072ff
+                );
+                background-size: 400% 400%;
+                animation: gradientMove 15s ease infinite;
+                overflow: hidden;
+            }
+
+            @keyframes gradientMove {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .btn-glow {
+                transition: all 0.3s ease-in-out;
+            }
+
+            .btn-glow:hover {
+                box-shadow:
+                    0 0 15px rgba(255, 255, 255, 0.6),
+                    0 0 25px rgba(0, 255, 255, 0.4);
+                transform: scale(1.02);
+            }
+
+            /* Salju */
+            .snowflake {
+                position: fixed;
+                top: -10px;
+                color: white;
+                font-size: 1em;
+                animation: fall linear infinite;
+                opacity: 0.8;
+            }
+
+            @keyframes fall {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body
+        class="min-h-screen flex justify-center items-start pt-20 px-4 relative"
+    >
+        <!-- Efek Suara -->
+        <audio
+            id="clickSound"
+            preload="auto"
+            src="https://www.myinstants.com/media/sounds/mouse-click.mp3"
+        ></audio>
+        <!-- SALJU (akan ditambahkan pakai JS di bawah) -->
+        <div id="snow-container"></div>
+        <div class="w-full max-w-md z-10">
+            <!-- Foto profil -->
+            <div class="flex justify-center -mt-16 mb-3">
+                <img
+                    alt="Profile"
+                    class="w-24 h-24 rounded-full object-cover border-4 border-white"
+                    src="https://i.imgur.com/hfEgHa2.png"
+                />
+            </div>
+            <!-- Judul -->
+            <h1 class="text-center text-white font-semibold text-xl mb-1">
+                MY BIO PAGE
+            </h1>
+            <p class="text-center text-white text-sm mb-5">
+                Welcome to my website. Click below to chat or explore!
+            </p>
+            <!-- Video embed container -->
+            <div class="mb-2 rounded-xl overflow-hidden" id="video-container">
+                <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen=""
+                    class="w-full aspect-video rounded-xl"
+                    frameborder="0"
+                    src="https://ik.imagekit.io/oiuatckaa/Video_Generation_Woman_s_Website_Welcome.mp4"
+                    title="Financial Freedom in 3 Years by Making Housing Affordable"
+                >
+                </iframe>
+            </div>
+            <!-- Close button with finger press effect -->
+            <div class="flex justify-center mb-5">
+                <button
+                    aria-label="Close"
+                    id="close-video"
+                    type="button"
+                    class="bg-[#ffff] w-9 h-9 rounded-full flex justify-center"
+                >
+                    <img
+                        src="close.png"
+                        alt="Close"
+                        class="w-10 h-10 object-contain"
+                    />
+                </button>
+            </div>
+
+            <!-- Tombol 1 -->
+            <a href="ccwa.html" target="_blank">
+                <button
+                    class="btn-glow flex justify-center items-center bg-white text-gray-900 text-sm font-semibold rounded-full py-3 px-6 w-full mb-4"
+                >
+                    <i class="fab fa-whatsapp mr-2"> </i>
+                    Chat via WhatsApp
+                </button>
+            </a>
+            <!-- Tombol 2 -->
+            <a href="red.html" target="_blank">
+                <button
+                    class="btn-glow flex justify-center items-center bg-white text-gray-900 text-sm font-semibold rounded-full py-3 px-6 w-full mb-4"
+                >
+                    <i class="fab fa-telegram-plane mr-2"> </i>
+                    Join Telegram
+                </button>
+            </a>
+            <!-- Tombol 3 -->
+            <a href="page1.html" target="_blank">
+                <button
+                    class="btn-glow flex justify-center items-center bg-white text-gray-900 text-sm font-semibold rounded-full py-3 px-6 w-full"
+                >
+                    <i class="fas fa-play mr-2"> </i>
+                    Watch My Video
+                </button>
+            </a>
+        </div>
+        <!-- JS: Efek Suara & Salju -->
+        <script>
+            // Suara klik
+            function playClick() {
+                document.getElementById("clickSound").play();
+            }
+
+            // Efek salju
+            const snowContainer = document.getElementById("snow-container");
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                snowflake.style.left = `${Math.random() * 70}vw`;
+                snowflake.style.animationDuration = `${5 + Math.random() * 5}s`;
+                snowflake.style.fontSize = `${10 + Math.random() * 20}px`;
+                snowflake.textContent = "❄";
+                snowContainer.appendChild(snowflake);
+            }
+            document
+                .getElementById("close-video")
+                .addEventListener("click", function () {
+                    const videoContainer =
+                        document.getElementById("video-container");
+                    if (videoContainer) {
+                        videoContainer.style.display = "none";
+                        this.style.display = "none";
+                    }
+                });
+        </script>
+        <!-- Evadav In-Page Push / Native Ads -->
+        <script type="text/javascript">
+            (function () {
+                var s = document.createElement("script");
+                s.async = true;
+                // Ganti 'PUBLISHER_ID' dengan ID Publisher Evadav kamu
+                s.src = "//go.evadav.com/PUBLISHER_ID.js";
+                document.body.appendChild(s);
+            })();
+        </script>
+        <!-- Evadav Interstitial Ad -->
+        <script type="text/javascript">
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    var s = document.createElement("script");
+                    s.async = true;
+                    // Ganti 'PUBLISHER_ID_INTER' dengan ID Publisher Evadav khusus Interstitial
+                    s.src = "//go.evadav.com/PUBLISHER_ID_INTER.js";
+                    document.body.appendChild(s);
+                }, 2000); // delay 2 detik setelah halaman load
+            });
+        </script>
+    </body>
+</html>
